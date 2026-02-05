@@ -1,0 +1,33 @@
+# Custom bash aliases for Ubuntu
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Listing
+alias ls='ls --color=auto'
+alias ll='ls -lah'
+alias la='ls -A'
+
+# Git
+alias gs='git status'
+alias gl='git log --oneline --graph --decorate --all'
+alias gd='git diff'
+alias gb='git branch'
+alias gco='git checkout'
+alias gcm='git commit -m'
+alias gpu='git push'
+
+# Python / DS
+alias py='python3'
+alias pip='pip3'
+alias venv='python3 -m venv .venv && source .venv/bin/activate'
+alias jn='jupyter notebook'
+alias jl='jupyter lab'
+
+# Utilities
+alias c='clear'
+alias ..logs='cd /var/log'
+alias update='sudo apt update && sudo apt upgrade -y'
+alias cls='clear'
