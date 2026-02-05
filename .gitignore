@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Virtual Environments
+venv/
+env/
+ENV/
+myenv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Node modules (if using any JS tools)
+node_modules/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# pytest
+.pytest_cache/
