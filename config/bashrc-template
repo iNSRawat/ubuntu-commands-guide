@@ -1,0 +1,49 @@
+# ~/.bashrc template for Ubuntu
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# History settings
+HISTSIZE=5000
+HISTFILESIZE=10000
+HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+
+# Prompt
+PS1='\u@\h:\w\$ '
+
+# Color support
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+fi
+
+# Aliases
+alias ll='ls -lah'
+alias la='ls -A'
+alias l='ls -CF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias c='clear'
+
+# Load user aliases
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
+# Python virtual environment shortcut
+alias venv='python3 -m venv .venv && source .venv/bin/activate'
+
+# Git shortcuts
+alias gs='git status'
+alias gl='git log --oneline --graph --decorate --all'
+alias gp='git push'
+alias gd='git diff'
+
+# Export common paths
+export PATH="$HOME/.local/bin:$PATH"
+
+# Enable programmable completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+  . /etc/bash_completion
+fi
