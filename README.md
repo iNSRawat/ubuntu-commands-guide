@@ -4,14 +4,13 @@ A comprehensive guide to essential Ubuntu commands, organized by skill level and
 
 ## 📚 Table of Contents
 
-- [Getting Started](#getting-started)
-- [Repository Structure](#repository-structure)
-- [Documentation](#documentation)
-- [Scripts](#scripts)
-- [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
-
+- [Getting Started](#-getting-started)
+- [Repository Structure](#-repository-structure)
+- [Documentation](#-documentation)
+- [Scripts](#%EF%B8%8F-scripts)
+- [Examples](#-examples)
+- [Contributing](#-contributing)
+- [License](#-license)- 
 ## 🚀 Getting Started
 
 This repository contains:
