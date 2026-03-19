@@ -319,3 +319,169 @@ unzip archive.zip -d destination/      # Extract to directory
 ---
 
 **Previous**: [Beginner Commands](01-beginner-commands.md) | **Next**: [Advanced Commands](03-advanced-commands.md)
+
+
+---
+
+## Additional Intermediate Commands
+
+### alias - Create Command Shortcuts
+Create short names for long commands. Add to `~/.bashrc` to make permanent.
+```bash
+# Temporary alias (current session only)
+alias ll='ls -lah'
+alias ..='cd ..'
+alias update='sudo apt update && sudo apt upgrade'
+alias py='python3'
+alias activate='source venv/bin/activate'
+alias gs='git status'
+alias gc='git commit -m'
+alias gp='git push'
+
+# View all aliases
+alias
+
+# Remove an alias
+unalias ll
+
+# Make permanent: add to ~/.bashrc
+nano ~/.bashrc
+# Add your alias lines at the bottom, then:
+source ~/.bashrc   # Reload without restarting terminal
+```
+
+### export - Environment Variables
+Set and use environment variables.
+```bash
+# Set a variable
+export MY_VAR="hello"
+
+# Use it
+echo $MY_VAR
+
+# Add to PATH (make a folder's programs available everywhere)
+export PATH=$PATH:/new/path
+
+# Common useful variables
+echo $HOME          # Your home directory
+echo $USER          # Your username
+echo $PATH          # All directories Ubuntu looks for commands
+echo $SHELL         # Current shell
+
+# List all environment variables
+env
+printenv
+printenv PATH
+
+# Make permanent: add to ~/.bashrc
+export MY_VAR="hello"    # Add this line to ~/.bashrc
+```
+
+### ssh - Secure Shell (Remote Login)
+Connect to remote servers securely.
+```bash
+# Connect to a server
+ssh username@server-ip
+ssh username@192.168.1.100
+ssh username@hostname.com
+
+# Connect on a specific port
+ssh -p 2222 username@server-ip
+
+# Connect using a key file
+ssh -i ~/.ssh/my_key.pem username@server-ip
+
+# Copy SSH key to server (for passwordless login)
+ssh-copy-id username@server-ip
+
+# Exit SSH session
+exit
+```
+
+### scp - Secure Copy (Transfer Files)
+Copy files between your machine and a remote server.
+```bash
+# Copy file TO remote server
+scp file.txt username@server:/path/to/destination/
+
+# Copy file FROM remote server
+scp username@server:/path/to/file.txt ./local-folder/
+
+# Copy entire folder
+scp -r myfolder/ username@server:/path/to/destination/
+
+# Copy with specific port
+scp -P 2222 file.txt username@server:/path/
+```
+
+### watch - Run Command Repeatedly
+Run a command every N seconds and display output.
+```bash
+watch df -h                     # Watch disk space every 2 sec
+watch -n 5 df -h                # Every 5 seconds
+watch -n 1 nvidia-smi           # Watch GPU every 1 second
+watch -n 2 free -h              # Watch memory every 2 sec
+watch -d df -h                  # Highlight changes
+# Press Ctrl+C to stop
+```
+
+### locate - Find Files Quickly
+Fast file search using a pre-built database.
+```bash
+# Update the database first (run once)
+sudo updatedb
+
+# Find a file
+locate filename.txt
+locate '*.py'                   # Find all Python files
+locate -i readme                # Case-insensitive
+locate -c filename              # Count results only
+
+# Note: locate is faster than find but may not show very new files
+# For new files always use: find
+```
+
+### tee - Write to File AND Screen at Same Time
+See output on screen and save it to a file simultaneously.
+```bash
+ls -la | tee filelist.txt              # Show AND save
+python3 train.py | tee training.log    # See AND log ML training
+command | tee -a logfile.txt           # Append (not overwrite)
+```
+
+### screen / tmux - Keep Sessions Running
+Run long tasks that keep going even if you close the terminal.
+```bash
+# Install
+sudo apt install screen tmux
+
+# --- screen ---
+screen                          # Start new session
+screen -S mysession             # Start named session
+Ctrl+A then D                   # Detach (leave running)
+screen -ls                      # List sessions
+screen -r mysession             # Re-attach to session
+screen -r                       # Re-attach (if only one)
+
+# --- tmux (more modern) ---
+tmux                            # Start new session
+tmux new -s mysession           # Named session
+Ctrl+B then D                   # Detach
+tmux ls                         # List sessions
+tmux attach -t mysession        # Re-attach
+# Split screen: Ctrl+B then " (horizontal) or % (vertical)
+# Switch panes: Ctrl+B then arrow keys
+```
+
+### lsof - List Open Files / Port Usage
+See which process is using a file or port.
+```bash
+lsof -i :8501                   # Who is using port 8501 (Streamlit)
+lsof -i :8888                   # Who is using port 8888 (Jupyter)
+lsof -i :80                     # Who is using port 80
+lsof -u username                # All files opened by user
+lsof | grep python              # Files opened by Python
+
+# Kill process using a port
+kill -9 $(lsof -t -i:8501)
+```
