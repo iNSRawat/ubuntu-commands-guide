@@ -280,3 +280,119 @@ which git
 ---
 
 **Next**: [Intermediate Commands](02-intermediate-commands.md)
+
+
+---
+
+## Essential Commands Missing for Beginners
+
+### echo - Print Text / Write to Files
+Print text to terminal or write content to a file.
+```bash
+echo "Hello World"              # Print text
+echo $HOME                      # Print variable
+echo "text" > file.txt          # Write to file (overwrite)
+echo "text" >> file.txt         # Append to file
+echo -e "Line1\nLine2"          # Print with newlines
+```
+
+### clear - Clear Terminal Screen
+```bash
+clear                           # Clear screen
+# Or use keyboard shortcut: Ctrl+L
+```
+
+### history - Command History
+View and reuse previously typed commands.
+```bash
+history                         # Show all history
+history 20                      # Show last 20 commands
+!!                              # Repeat last command
+!50                             # Run command number 50
+history | grep docker           # Search history
+Ctrl+R                          # Interactive reverse search
+```
+
+### sudo - Run as Superuser
+Run commands with administrator (root) privileges.
+```bash
+sudo command                    # Run command as root
+sudo apt install vim            # Install software
+sudo -i                         # Switch to root shell
+sudo !!                         # Re-run last command as sudo
+whoami                          # Check current user
+sudo whoami                     # Should print: root
+```
+> ⚠️ Always be careful with sudo — it has full system access!
+
+### ln - Create Links (Shortcuts)
+Create shortcuts (symlinks) to files or folders.
+```bash
+ln -s /path/to/original /path/to/link   # Symbolic link
+ln -s ~/projects/myapp ~/Desktop/myapp  # Shortcut on Desktop
+ls -la                                  # See symlinks (shown with ->)
+rm linkname                             # Remove symlink only
+```
+
+### file - Check File Type
+Find out what type a file is (text, binary, image, etc.).
+```bash
+file document.pdf               # Check file type
+file script.sh                  # Check shell script
+file image.png                  # Check image
+file *                          # Check all files in folder
+```
+
+### Running Shell Scripts
+How to create and run your own scripts.
+```bash
+# Step 1: Create script
+nano myscript.sh
+
+# Step 2: Add content (inside nano)
+#!/bin/bash
+echo "Hello from my script!"
+
+# Step 3: Make it executable
+chmod +x myscript.sh
+
+# Step 4: Run it
+./myscript.sh
+```
+
+### WSL-Specific Commands (Windows Subsystem for Linux)
+Commands useful when running Ubuntu inside WSL on Windows.
+```bash
+# From Windows PowerShell/CMD:
+wsl                             # Open default WSL distro
+wsl --list --verbose            # List installed distros
+wsl --shutdown                  # Shutdown all WSL instances
+wsl --set-default-version 2     # Set WSL 2 as default
+
+# From inside WSL Ubuntu:
+explorer.exe .                  # Open current folder in Windows Explorer
+notepad.exe file.txt            # Open file in Windows Notepad
+cd /mnt/c/Users/YourName        # Access Windows C: drive
+cd ~                            # Go to WSL home directory
+pwd                             # Shows /home/yourusername
+
+# Access WSL files from Windows:
+# Open File Explorer and type: \\wsl$
+```
+
+### Keyboard Shortcuts (Extended)
+| Shortcut | What it does |
+|----------|--------------|
+| `Ctrl+C` | Stop/kill running command |
+| `Ctrl+Z` | Pause/suspend command |
+| `Ctrl+D` | Exit terminal / logout |
+| `Ctrl+L` | Clear screen |
+| `Ctrl+R` | Search command history |
+| `Ctrl+A` | Jump to start of line |
+| `Ctrl+E` | Jump to end of line |
+| `Ctrl+U` | Delete entire line |
+| `Ctrl+K` | Delete from cursor to end |
+| `Ctrl+W` | Delete previous word |
+| `Tab` | Auto-complete file/command name |
+| `Tab Tab` | Show all possible completions |
+| `↑ / ↓` | Navigate command history |
