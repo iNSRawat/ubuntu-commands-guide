@@ -218,3 +218,77 @@ alias ipy='ipython'
 ---
 
 **Tip**: Use `man <command>` or `<command> --help` for more details on any command!
+
+
+---
+
+## WSL (Windows Subsystem for Linux) Commands
+
+| Command | Description |
+|---------|-------------|
+| `wsl` | Open WSL Ubuntu |
+| `wsl --list --verbose` | List installed distros & version |
+| `wsl --shutdown` | Shutdown all WSL instances |
+| `wsl --set-default-version 2` | Set WSL2 as default |
+| `explorer.exe .` | Open current folder in Windows Explorer |
+| `cd /mnt/c/Users/YourName` | Access Windows C: drive |
+| `cd ~` | Go to WSL home |
+| `sudo service docker start` | Start Docker in WSL |
+
+## Docker Quick Reference
+
+| Command | Description |
+|---------|-------------|
+| `docker ps` | List running containers |
+| `docker ps -a` | List ALL containers |
+| `docker run -it ubuntu bash` | Run interactive container |
+| `docker run -d -p 80:80 nginx` | Run in background with port |
+| `docker stop <id>` | Stop a container |
+| `docker rm <id>` | Delete a container |
+| `docker images` | List local images |
+| `docker pull python:3.11-slim` | Download image |
+| `docker rmi <id>` | Delete image |
+| `docker build -t myapp .` | Build image from Dockerfile |
+| `docker exec -it <name> bash` | Enter running container |
+| `docker logs -f <id>` | Follow container logs |
+| `docker system prune` | Clean up unused resources |
+| `docker compose up -d` | Start compose services |
+| `docker compose down` | Stop compose services |
+
+## tmux Quick Reference
+
+| Shortcut | Description |
+|----------|-------------|
+| `tmux` | Start new session |
+| `tmux new -s name` | Named session |
+| `tmux ls` | List sessions |
+| `tmux attach -t name` | Re-attach to session |
+| `Ctrl+B then D` | Detach (leave running) |
+| `Ctrl+B then "` | Split horizontally |
+| `Ctrl+B then %` | Split vertically |
+| `Ctrl+B then arrow` | Switch panes |
+| `Ctrl+B then X` | Close pane |
+| `Ctrl+B then C` | New window |
+| `Ctrl+B then N` | Next window |
+
+## Useful One-Liners for DS
+
+```bash
+# Kill process using a port (e.g. 8501 for Streamlit)
+kill -9 $(lsof -t -i:8501)
+
+# Count lines in all Python files
+find . -name "*.py" | xargs wc -l | sort -n
+
+# Find large files
+find ~ -type f -size +100M 2>/dev/null
+
+# Watch memory live
+watch -n 2 free -h
+
+# Quick Python test
+python3 -c "import pandas; print(pandas.__version__)"
+
+# Docker: run Jupyter from current folder
+docker run -v $(pwd):/home/jovyan/work -p 8888:8888 jupyter/datascience-notebook
+```
