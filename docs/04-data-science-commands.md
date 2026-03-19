@@ -340,4 +340,66 @@ git commit -m "Initial commit"
 
 ---
 
+
+---
+
+## System Python + venv DS Setup (WSL Ubuntu)
+
+A lightweight setup using system Python and venv — no Conda overhead.
+
+### 1. Install Base Packages (once)
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip build-essential
+```
+
+### 2. Create a Dedicated DS Virtual Environment
+
+```bash
+# Create envs folder and ds-main venv
+mkdir -p ~/ds-envs
+cd ~/ds-envs
+python3 -m venv ds-main
+
+# Activate
+source ~/ds-envs/ds-main/bin/activate
+# prompt will show (ds-main)
+
+# Deactivate anytime
+deactivate
+```
+
+### 3. Install Core DS Libraries (inside venv)
+
+```bash
+pip install --upgrade pip
+
+# Core numerics & pandas
+pip install numpy pandas scipy
+
+# Visualization
+pip install matplotlib seaborn plotly
+
+# Machine Learning
+pip install scikit-learn xgboost lightgbm
+
+# Notebooks
+pip install jupyterlab ipykernel
+
+# Dashboards & APIs
+pip install streamlit fastapi uvicorn[standard]
+
+# Utilities
+pip install ipywidgets tqdm joblib black isort pytest
+```
+
+### 4. Use the venv in a Project
+
+```bash
+# Example: Churn Streamlit app
+cd ~/projects/churn-streamlit
+source ~/ds-envs/ds-main/bin/activate
+streamlit run app.py
+```
 **Previous**: [Intermediate Commands](02-intermediate-commands.md) | **Next**: [Git & GitHub Commands](05-git-github-commands.md)
