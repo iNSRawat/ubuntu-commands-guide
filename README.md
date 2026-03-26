@@ -167,5 +167,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Give a ⭐️ if this project helped you!
 
+## 🗺️ Resources
+
+- [Linux Roadmap](https://roadmap.sh/linux) - A structured roadmap to learn Linux step by step
+
 ---
 *Last Updated: March 2026*
