@@ -75,6 +75,7 @@ A cheat sheet for the most commonly used Ubuntu commands.
 | `sudo apt remove` | Remove package | `sudo apt remove vim` |
 | `sudo apt autoremove` | Remove unused deps | `sudo apt autoremove` |
 | `apt search` | Search packages | `apt search python` |
+| `sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y` | Update all & clean unused | `sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y` |
 
 ## Network Commands
 
