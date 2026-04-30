@@ -91,6 +91,50 @@ rm *.txt                         # Delete all .txt files
 
 ### cat - Display File Contents
 View entire file contents.
+### grep - Search Text in Files
+Search for patterns inside files or command output.
+```bash
+grep "word" file.txt           # Search for word in file
+grep -i "word" file.txt        # Case-insensitive search
+grep -r "word" /path/          # Search recursively in directory
+grep -n "word" file.txt        # Show line numbers
+grep -l "word" *.txt           # List filenames with match
+grep -v "word" file.txt        # Show lines that do NOT match
+grep "error" logfile | less    # Pipe grep output to less
+```
+
+### find - Find Files and Directories
+Search for files/directories by name, size, type, or date.
+```bash
+find . -name "file.txt"        # Find by exact name
+find . -name "*.py"            # Find all Python files
+find /home -type d             # Find only directories
+find /home -type f             # Find only files
+find . -size +100M             # Find files larger than 100MB
+find . -mtime -7               # Files modified in last 7 days
+find . -name "*.log" -delete   # Find and delete log files
+```
+
+### chmod - Change File Permissions
+Set who can read, write, or execute a file.
+```bash
+chmod 755 script.sh            # rwxr-xr-x (owner full, others read+exec)
+chmod 644 file.txt             # rw-r--r-- (owner read+write, others read)
+chmod +x script.sh             # Add execute permission
+chmod -x script.sh             # Remove execute permission
+chmod -R 755 folder/           # Recursively change permissions
+```
+**Permission numbers:** 4=read, 2=write, 1=execute (add together for each group)
+
+### chown - Change File Owner
+Change who owns a file or directory.
+```bash
+chown user file.txt            # Change owner
+chown user:group file.txt      # Change owner and group
+chown -R user:group folder/    # Recursively change ownership
+sudo chown root file.txt       # Give ownership to root
+```
+
 ```bash
 cat file.txt                     # Display file
 cat file1.txt file2.txt          # Display multiple files
