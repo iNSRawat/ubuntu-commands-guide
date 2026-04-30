@@ -213,6 +213,22 @@ apt search keyword
 apt search python
 ```
 
+### Update all installed packages
+
+Update package list, upgrade installed packages, and remove unused dependencies:
+
+```bash
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+```
+
+Check whether anything is still pending:
+
+```bash
+apt list --upgradable
+```
+
+If no packages are listed, your Ubuntu system is up to date.
+
 ## Help and Documentation
 
 ### man - Manual Pages
