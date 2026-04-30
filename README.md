@@ -154,6 +154,12 @@ This guide is perfect for:
 - System administrators
 - Anyone learning Linux command line from scratch
 
+### Common update command
+
+```bash
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+```
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
